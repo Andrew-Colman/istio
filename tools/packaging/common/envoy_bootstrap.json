@@ -583,6 +583,30 @@
       }
     }
   }
+  {{ else if .openCensus }}
+  ,
+  "tracing": {
+    "http": {
+      "name": "envoy.tracers.opencensus",
+      "typed_config": {
+        "@type": "type.googleapis.com/envoy.config.trace.v3.OpenCensusConfig",
+        "ocagent_exporter_enabled": true,
+        "ocagent_address": "{{ .openCensus }}",
+        "stdout_exporter_enabled": {{ .openCensusDebug }},
+        "incoming_trace_context": ["CLOUD_TRACE_CONTEXT", "TRACE_CONTEXT", "GRPC_TRACE_BIN", "B3"],
+        "outgoing_trace_context": ["CLOUD_TRACE_CONTEXT", "TRACE_CONTEXT", "GRPC_TRACE_BIN", "B3"],
+        "trace_config": {
+          "constant_sampler": {
+            "decision": "ALWAYS_PARENT"
+          },
+          "max_number_of_annotations": {{ .openCensusMaxAnnotations }},
+          "max_number_of_attributes": {{ .openCensusMaxAttributes }},
+          "max_number_of_message_events": {{ .openCensusMaxEvents }},
+          "max_number_of_links": 200
+        }
+      }
+    }
+  }
   {{ else if .stackdriver }}
   ,
   "tracing": {

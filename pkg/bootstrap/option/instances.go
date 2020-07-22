@@ -130,6 +130,26 @@ func LightstepToken(value string) Instance {
 	return newOption("lightstepToken", value)
 }
 
+func OpenCensus(value string) Instance {
+	return newOptionOrSkipIfZero("openCensus", value)
+}
+
+func OpenCensusDebug(value bool) Instance {
+	return newOption("openCensusDebug", value)
+}
+
+func OpenCensusMaxAnnotations(value int64) Instance {
+	return newOption("openCensusMaxAnnotations", value)
+}
+
+func OpenCensusMaxAttributes(value int64) Instance {
+	return newOption("openCensusMaxAttributes", value)
+}
+
+func OpenCensusMaxEvents(value int64) Instance {
+	return newOption("openCensusMaxEvents", value)
+}
+
 func StackDriverEnabled(value bool) Instance {
 	return newOption("stackdriver", value)
 }

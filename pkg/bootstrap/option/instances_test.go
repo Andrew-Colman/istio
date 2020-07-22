@@ -250,6 +250,36 @@ func TestOptions(t *testing.T) {
 			expected: "fake",
 		},
 		{
+			testName: "opencensus address",
+			key:      "openCensus",
+			option:   option.OpenCensus("fake-ocagent"),
+			expected: "fake-ocagent",
+		},
+		{
+			testName: "opencensus debug",
+			key:      "openCensusDebug",
+			option:   option.OpenCensusDebug(true),
+			expected: true,
+		},
+		{
+			testName: "opencensus max annotations",
+			key:      "openCensusMaxAnnotations",
+			option:   option.OpenCensusMaxAnnotations(101),
+			expected: int64(101),
+		},
+		{
+			testName: "opencensus max attributes",
+			key:      "openCensusMaxAttributes",
+			option:   option.OpenCensusMaxAttributes(102),
+			expected: int64(102),
+		},
+		{
+			testName: "opencensus max events",
+			key:      "openCensusMaxEvents",
+			option:   option.OpenCensusMaxEvents(103),
+			expected: int64(103),
+		},
+		{
 			testName: "stackdriver enabled",
 			key:      "stackdriver",
 			option:   option.StackDriverEnabled(true),
