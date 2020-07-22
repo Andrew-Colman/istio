@@ -252,7 +252,7 @@ func TestOptions(t *testing.T) {
 		{
 			testName: "opencensus address",
 			key:      "openCensus",
-			option:   option.OpenCensus("fake-ocagent"),
+			option:   option.OpenCensusAddress("fake-ocagent"),
 			expected: "fake-ocagent",
 		},
 		{

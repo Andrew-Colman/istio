@@ -130,7 +130,7 @@ func LightstepToken(value string) Instance {
 	return newOption("lightstepToken", value)
 }
 
-func OpenCensus(value string) Instance {
+func OpenCensusAddress(value string) Instance {
 	return newOptionOrSkipIfZero("openCensus", value)
 }
 
